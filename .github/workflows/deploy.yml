@@ -35,4 +35,4 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devops-app:latest
             docker stop devops-app-container || true
             docker rm devops-app-container || true
-            docker run -d -p 80:80 --name devops-app-container ${{ secrets.DOCKERHUB_USERNAME }}/devops-app:latest
+            docker run -d -p 80:8000 --name devops-app-container ${{ secrets.DOCKERHUB_USERNAME }}/devops-app:latest
