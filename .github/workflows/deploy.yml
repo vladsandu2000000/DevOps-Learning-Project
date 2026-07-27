@@ -32,7 +32,10 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devops-app:latest
             docker stop devops-app-container || true
             docker rm devops-app-container || true
-            docker run -d -p 80:8000 --name devops-app-container ${{ secrets.DOCKERHUB_USERNAME }}/devops-app:latest
+            cd ~/devops-learning-project || git clone https://github.com/vladsandu2000000/DevOps-Learning-Project.git ~/devops-learning-project
+            cd ~/devops-learning-project
+            git pull origin main
+            docker compose down
+            docker compose up -d --build
