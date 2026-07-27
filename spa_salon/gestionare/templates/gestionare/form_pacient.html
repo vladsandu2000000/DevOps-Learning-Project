@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugă Client Nou - Salon Spa</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Salon Spa</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Acasă</a></li>
+                    <li><a href="{% url 'lista_tratamente' %}">Servicii</a></li>
+                    <li><a href="{% url 'lista_pacienti' %}">Clienți</a></li>
+                    <li><a href="{% url 'lista_diagnoze' %}">Diagnoze</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2>Adaugă Client Nou</h2>
+        <form method="post" action="{% url 'adauga_pacient' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Salvează</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Salon Spa. Toate drepturile rezervate.</p>
+    </footer>
+</body>
+</html>

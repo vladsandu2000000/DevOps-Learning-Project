@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmare Ștergere Tratament</title>
+</head>
+<body>
+    <h1>Confirmare Ștergere Tratament</h1>
+    <p>Ești sigur că vrei să ștergi acest tratament?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Da</button>
+        <a href="{% url 'lista_tratamente' %}">Nu</a>
+    </form>
+</body>
+</html>

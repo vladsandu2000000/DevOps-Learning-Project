@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmare Ștergere - Salon Spa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #bbb 5px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            margin: 0;
+            padding: 0;
+        }
+        header li {
+            list-style: none;
+            display: inline;
+            padding: 0 10px;
+        }
+        header nav ul {
+            margin-top: 4px;
+            float: right;
+        }
+        header nav li {
+            display: inline;
+            padding: 0 10px;
+            margin-top: 10px;
+        }
+        header h1 {
+            float: left;
+            display: inline;
+            padding: 0 20px 10px 0;
+            text-transform: uppercase;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            font-size: 1.2em;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons form {
+            display: inline-block;
+        }
+        .buttons input {
+            background: #333;
+            color: #fff;
+            border: 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .buttons a {
+            background: #ccc;
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-top: #bbb 5px solid;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Salon Spa</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Acasă</a></li>
+                    <li><a href="{% url 'lista_tratamente' %}">Servicii</a></li>
+                    <li><a href="{% url 'lista_pacienti' %}">Clienți</a></li>
+                    <li><a href="{% url 'lista_diagnoze' %}">Diagnoze</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container content">
+        <h2>Confirmare Ștergere</h2>
+        <p>Ești sigur că vrei să ștergi pacientul {{ pacient.Nume }}?</p>
+        <div class="buttons">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="submit" value="Șterge">
+            </form>
+            <a href="{% url 'lista_pacienti' %}">Anulează</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Salon Spa. Toate drepturile rezervate.</p>
+    </footer>
+</body>
+</html>
