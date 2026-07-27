@@ -39,3 +39,5 @@ jobs:
             git pull origin main
             docker compose down
             docker compose up -d --build
+            docker compose exec -T web python spa_salon/manage.py migrate
+
