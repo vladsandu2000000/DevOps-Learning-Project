@@ -6,6 +6,7 @@ This is a Django web application containerized with **Docker** and deployed to a
 
 ## Architecture
 
+```text
 Developer
     |
     | git push
@@ -26,6 +27,7 @@ Docker Compose
     |
     +--> Django container
     +--> PostgreSQL container
+```
 
 ---
 
